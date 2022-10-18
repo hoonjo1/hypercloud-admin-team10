@@ -1,7 +1,14 @@
 import React from 'react';
+import Table from 'components/Table';
+import SideBar from 'components/SideBar';
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  return (
+    <main className="flex w-full">
+      <SideBar />
+      <Table />
+    </main>
+  );
 };
 
 export default Dashboard;
