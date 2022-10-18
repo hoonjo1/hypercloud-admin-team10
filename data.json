@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "email": "admin@gamil.com",
+      "password": "$2a$10$4lKyL77Wh7IWXLTnoQgrfOE9PwDkPMgCa8wv5EAUndJewklcEpQq2",
+      "name": "정훈조",
+      "id": "ILTehni"
+    }
+  ],
+  "about": [
+    {
+      "author": "정훈조",
+      "category": "요약글",
+      "title": "테스트 제목",
+      "body": "테스트 본문",
+      "id": ""
+    }
+  ]
+}
