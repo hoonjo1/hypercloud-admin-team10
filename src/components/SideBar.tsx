@@ -8,11 +8,6 @@ const SideBar = () => {
           href="https://flowbite.com/"
           className="flex items-center pl-2.5 mb-5"
         >
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="mr-3 h-6 sm:h-7"
-            alt="HYPER Cloud Logo"
-          />
           <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
             HYPER Cloud
           </span>
@@ -43,8 +38,8 @@ const SideBar = () => {
         <ul className="pt-4 mt-4 space-y-2 border-t border-gray-200 dark:border-gray-700">
           <li>
             <a
-              href="#"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              onClick={e => e.preventDefault}
+              className="flex items-center p-2 cursor-default text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700"
             >
               <svg
                 aria-hidden="true"
@@ -56,15 +51,36 @@ const SideBar = () => {
                 <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
               </svg>
               <span className="flex-1 ml-3 whitespace-nowrap">About</span>
-              <span className="inline-flex justify-center items-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">
-                Pro
-              </span>
             </a>
           </li>
           <li>
             <a
-              href="#"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              href="/about"
+              className="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <span className="flex ml-16 whitespace-nowrap">페이지 소개</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="/team-info"
+              className="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <span className="flex ml-16 whitespace-nowrap">팀 소개</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="/history"
+              className="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <span className="flex ml-16 whitespace-nowrap">회사 연혁</span>
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={e => e.preventDefault}
+              className="flex items-center p-2 cursor-default text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700"
             >
               <svg
                 aria-hidden="true"
@@ -75,8 +91,31 @@ const SideBar = () => {
               >
                 <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path>
               </svg>
-
               <span className="flex-1 ml-3 whitespace-nowrap">XR-Business</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="/xr-business"
+              className="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <span className="flex ml-16 whitespace-nowrap">페이지 소개</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="/business-area"
+              className="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <span className="flex ml-16 whitespace-nowrap">기술 소개</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="/xr-contents-solution"
+              className="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <span className="flex ml-16 whitespace-nowrap">기술 협업</span>
             </a>
           </li>
           <li>

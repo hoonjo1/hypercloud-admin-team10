@@ -1,14 +1,15 @@
 import React from 'react';
-import Table from 'components/Table';
 import SideBar from 'components/SideBar';
-import { PageSummary } from 'components/PageSummary';
 
-const Dashboard = () => {
+interface Props {
+  children: JSX.Element[] | JSX.Element;
+}
+
+const Dashboard = ({ children }: Props) => {
   return (
     <main className="flex w-full">
       <SideBar />
-      {/* <Table /> */}
-      <PageSummary />
+      {children}
     </main>
   );
 };
