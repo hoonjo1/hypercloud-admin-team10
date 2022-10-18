@@ -1,46 +1,204 @@
-# Getting Started with Create React App
+# hypercloud-admin-team10
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 프로젝트 개요
 
-## Available Scripts
+- 진행기간 : 10/17 ~ 10/19
+- 과제주관 : hypercloud
+- 참여명단 : 서수민, 장종현, 정훈조
+  <br/>
+  <br/>
 
-In the project directory, you can run:
+## ⚙ 프로젝트 관리 및 설계와 관련된 사항들
 
-### `npm start`
+- 기술스택 : React / TypeScript / Json-server / Tailwind
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  - 팀원 모두 익숙하며 Components로 빠른 개발이 가능한 React를 사용 하였습니다
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  - 향상된 개발 경험과 또한 높은 수준의 코드 탐색과 디버깅을 가능하게 하는 TypeScript를 사용 했습니다.
 
-### `npm test`
+  - [로그인, 회원가입, 포스트 조회, 작성] 등 CRUD를 구현 할수있는 Json-server를 사용 했습니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - 팀원 모두 처음 사용해보는 css 라이브러리 이지만 짦은 시간내 프로젝트의 기획된 UI/UX 를 구현하고자 사용 했습니다.
 
-### `npm run build`
+- 본 프로젝트는 로컬 환경에서 개발 했습니다
+- json-server 실행 명령어 : npm run server
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 요구사항과 해결방법
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> MISSION 1
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 회원가입, 로그인 화면
 
-### `npm run eject`
+- 기능 / markUp을 구분하여 개발 하였습니다 ( useUserHandler hook / Form Component)
+- useUserHandler 훅 내 로그인 / 회원가입 핸들러를 구현 했습니다<br/>
+- 동일한 레이아웃 내 [isSignUp] boolean 값 사용 같은 컴포넌트의 재사용성을 극대화 시켰습니다 (signIn or signUp)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```js
+import React from 'react';
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+interface Props {
+  values: { email: string; password: string; name?: string };
+  isSignUp: boolean;
+  handleToggle: () => void;
+  handleInput: React.ChangeEventHandler<HTMLInputElement>;
+  handlesignUp: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  handlesignIn: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
+}
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+const Form = ({
+  values,
+  isSignUp,
+  handleToggle,
+  handleInput,
+  handlesignUp,
+  handlesignIn,
+}: Props) => {
+  return (
+    //....
+        <form
+          className="mt-8 space-y-6"
+          action="#"
+          method="POST"
+          onSubmit={isSignUp ? handlesignUp : handlesignIn}
+        >
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Form 컴포넌트의 form 태그 내 input 태그 입력값은 values 스테이트값을 업데이트 시킵니다
 
-## Learn More
+```js
+///useUserHandler.ts
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  const handleInput = (event: React.FormEvent<HTMLInputElement>) => {
+    const { name, value } = event.target as HTMLInputElement;
+    setValues({ ...values, [name]: value });
+  };
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+
+- Form 컴포넌트의 onSubmit 이벤트 발생시 isSignUp 상태에 따라
+  handleSignUp 혹은 handleSignIn 함수 실행(values 값 포함한 api POST 요청)
+- fetch 함수는 import 하여 사용 하였습니다
+- axios의 error 확인이 되지않는 문제가 발생하였고 error의 타입을 지정해야 되는것을 확인 해당 타입을 적용 에러발생시 return 값 확인하여 hook에서 처리하였습니다
+
+```js
+///signUp.ts
+
+import axios, { AxiosError } from 'axios';
+import { BASE_URL } from './utils';
+
+const signUp = async (email: string, password: string, name: string) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/register'`, {
+      email,
+      password,
+      name,
+    });
+    return response.data;
+  } catch (error) {
+    // 에러 발생시 에러 정보 리턴
+    const { response } = error as unknown as AxiosError;
+    if (response) {
+      return response;
+    }
+  }
+};
+
+export default signUp;
+```
+
+-
+
+```js
+///useUserHandler.ts
+const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
+  try {
+    const response = await signUp(values.email, values.password, values.name);
+    if (response.statusText === 'Bad Request') {
+      // Bad Request 발생시 에러메시지 포함 alert창 팝업 후 종료
+      alert(response.data);
+      return;
+    }
+    // 회원가입 완료시 isSignUp 값 변경하여 signIn폼 으로 변경
+    handleToggle();
+    alert('Success Sign in now!');
+  } catch (error) {
+    alert('server ERROR ❌');
+    console.error(error);
+    // 그외 에러 발생시 팝업
+  }
+};
+```
+
+<br/>
+
+> MISSION 2
+
+### 콘텐츠 작성 화면
+
+- <br/>
+
+```js
+
+```
+
+<br/>
+
+## 팀 컨밴션
+
+git commit
+
+- ADD : 새로운 기능 추가했을 때
+- EDIT : 버그, 디자인 등 수정했을 때
+- DELETE : 파일을 삭제하는 작업만 수행한 경우
+
+branch
+
+- feature/기능
+
+<br/>
+
+## 테스크
+
+서수민 :
+
+장종현 :
+
+정훈조 : 초기세팅, json-server api 설정 및 구현, 로그인/회원가입 기능 구현
+
+<br/>
+
+## 목데이터
+
+<details>
+<summary>예시</summary>
+
+```js
+
+```
+
+</details>
+
+<br/>
+
+## 고민했던 부분 및 느낀 점
+
+<br/>
+
+서수민
+
+-
+
+<br/>
+
+장종현
+
+-
+
+<br/>
+
+정훈조
+
+-
+
+<br/>
