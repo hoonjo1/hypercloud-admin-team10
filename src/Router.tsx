@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import SignIn from 'pages/SignIn';
+import Auth from 'pages/Auth';
 import { About } from 'pages/About';
 import { XrBusiness } from 'pages/XrBusiness';
 import { BusinessArea } from 'pages/BusinessArea';
@@ -13,7 +13,7 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<SignIn />} />
+        <Route path="/" element={<Auth />} />
         <Route path="/dashboard" element={<About />} />
         <Route path="/about" element={<About />} />
         <Route path="/xr-business" element={<XrBusiness />} />
