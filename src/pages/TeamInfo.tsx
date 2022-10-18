@@ -2,15 +2,15 @@ import React from 'react';
 import Dashboard from './Dashboard';
 import { TopBreadCrumb } from 'components/TopBreadCrumb';
 
-export const BusinessArea = () => {
+export const TeamInfo = () => {
   return (
     <Dashboard>
       <div className="p-5 w-4/5 overflow-x-auto relative shadow-md sm:rounded-lg">
-        <TopBreadCrumb title="XR-Business" category="Business Area" />
+        <TopBreadCrumb title="About" category="Team" />
         <div className="block w-full px-2 py-8 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-          기술 소개
+          팀 소개
           <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-            하이퍼클라우드 기술 소개
+            하이퍼클라우드의 팀 소개
           </p>
         </div>
         <form className="px-1 py">

@@ -2,10 +2,10 @@ import React from 'react';
 import Dashboard from './Dashboard';
 import { PageSummary } from 'pages/PageSummary';
 
-export const About = () => {
+export const XrBusiness = () => {
   return (
     <Dashboard>
-      <PageSummary title="About" category="introduce" />
+      <PageSummary title="XR-Business" category="introduce" />
     </Dashboard>
   );
 };
