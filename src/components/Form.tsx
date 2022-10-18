@@ -5,8 +5,8 @@ interface Props {
   isSignUp: boolean;
   handleToggle: () => void;
   handleInput: React.ChangeEventHandler<HTMLInputElement>;
-  handlesignUp: (event: React.FormEvent<HTMLFormElement>) => Promise<any>;
-  handlesignIn: (event: React.FormEvent<HTMLFormElement>) => Promise<any>;
+  handlesignUp: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  handlesignIn: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
 }
 
 const Form = ({
