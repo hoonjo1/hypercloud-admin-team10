@@ -1,6 +1,12 @@
 import React from 'react';
 
-const SideBar = () => {
+const SideBar = ({
+  userName,
+  handleLogOut,
+}: {
+  userName: string | null;
+  handleLogOut: () => void;
+}) => {
   return (
     <aside className="w-1/5" aria-label="Sidebar">
       <div className="h-screen overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
@@ -16,7 +22,7 @@ const SideBar = () => {
           <li>
             <a
               href="#"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white "
             >
               <svg
                 aria-hidden="true"
@@ -31,7 +37,13 @@ const SideBar = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-              <span className="flex-1 ml-3 whitespace-nowrap">Users</span>
+              <span className="flex-1 ml-3 whitespace-nowrap">{`${userName}`}</span>
+              <span
+                className="flex-1 ml-3 whitespace-nowrap"
+                onClick={handleLogOut}
+              >
+                로그아웃
+              </span>
             </a>
           </li>
         </ul>

@@ -50,7 +50,7 @@ const useUserHandler = () => {
       localStorage.setItem('accessToken', response.accessToken);
       localStorage.setItem('userName', response.user.name);
       alert(`Welcome ${response.user.name}`);
-      navigate(`/dashboard`);
+      navigate(`/about`);
     } catch (error) {
       alert('server ERROR ❌');
       console.error(error);

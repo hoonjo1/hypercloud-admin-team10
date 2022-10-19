@@ -16,7 +16,6 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Auth />} />
-        <Route path="/dashboard" element={<About />} />
         <Route path="/about" element={<About />} />
         <Route path="/about-info" element={<AboutInfo />} />
         <Route path="/xr-business" element={<XrBusiness />} />
