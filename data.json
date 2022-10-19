@@ -10,7 +10,16 @@
   "about": [
     {
       "author": "정훈조",
-      "category": "요약글",
+      "category": "페이지소개",
+      "title": "테스트 제목",
+      "body": "테스트 본문",
+      "id": ""
+    }
+  ],
+  "xrBusiness": [
+    {
+      "author": "정훈조",
+      "category": "페이지소개",
       "title": "테스트 제목",
       "body": "테스트 본문",
       "id": ""
