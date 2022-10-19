@@ -9,7 +9,7 @@ interface Props {
   handlesignIn: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
 }
 
-const Form = ({
+const AuthForm = ({
   values,
   isSignUp,
   handleToggle,
@@ -154,4 +154,4 @@ const Form = ({
   );
 };
 
-export default Form;
+export default AuthForm;

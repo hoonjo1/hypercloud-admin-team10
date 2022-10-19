@@ -5,7 +5,7 @@ import Post from 'components/Post';
 export const XrContentsSolution = () => {
   return (
     <Dashboard>
-      <Post title="연혁" subTitle="회사연혁" />
+      <Post title="기술 협업" subTitle="기술 협업" />
     </Dashboard>
   );
 };

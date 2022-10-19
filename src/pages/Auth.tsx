@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from 'components/Form';
+import AuthForm from 'components/AuthForm';
 import useUserHandler from 'hooks/useUserHandler';
 
 const Auth = () => {
@@ -14,7 +14,7 @@ const Auth = () => {
 
   return (
     <>
-      <Form
+      <AuthForm
         values={values}
         isSignUp={isSignUp}
         handleToggle={handleToggle}

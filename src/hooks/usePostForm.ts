@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { BASE_URL } from 'api/utils';
 
 const initializeState = {
@@ -9,6 +9,7 @@ const initializeState = {
 };
 
 const usePostForm = () => {
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const [values, setValues] = useState(initializeState);
 
@@ -23,19 +24,19 @@ const usePostForm = () => {
       case '/about-info':
         urlLocation = '페이지 소개';
         break;
-      case '/about-teamInfo':
+      case '/about-team-info':
         urlLocation = '팀 소개';
         break;
-      case '/history':
+      case '/about-history':
         urlLocation = '기업 연혁';
         break;
       case '/xr-business-info':
         urlLocation = '페이지 소개';
         break;
-      case '/xr-contents-solution':
+      case '/xr-business-solution':
         urlLocation = '기술 협업';
         break;
-      case '/business-area':
+      case '/xr-business-area':
         urlLocation = '기술 소개';
         break;
       default:
@@ -49,17 +50,22 @@ const usePostForm = () => {
     const author = localStorage.getItem('userName');
     const { title, body } = values;
     const category = urlValidation(pathname);
-    const { data } = await axios.post(
-      `${BASE_URL}/${pathname === '/about' ? 'about' : 'xrbusiness'}`,
-      {
-        author,
-        title,
-        body,
-        category,
-      }
-    );
+    const endPoint = pathname.includes('about') ? '/about' : '/xr-business';
 
-    return data;
+    try {
+      const { data } = await axios.post(
+        `${BASE_URL}/${pathname === '/about' ? 'about' : 'xrbusiness'}`,
+        {
+          author,
+          title,
+          body,
+          category,
+        }
+      );
+      navigate(endPoint);
+    } catch (error) {
+      alert('server ERROR ❌');
+    }
   };
 
   return {

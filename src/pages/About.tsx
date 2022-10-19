@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-import Dashboard from 'components/Dashboard';
-import { TopBreadCrumb } from 'components/TopBreadCrumb';
-import { useLocation } from 'react-router-dom';
-import { BASE_URL } from 'api/utils';
-import axios from 'axios';
-=======
 import React, { useState, useEffect } from 'react';
-import Dashboard from './Dashboard';
+import Dashboard from 'components/Dashboard';
 import { TopBreadCrumb } from 'components/TopBreadCrumb';
 import contents from 'api/contents';
 import { Modal } from 'components/Modal';
@@ -19,7 +11,6 @@ interface Type {
   body: string;
   id: string;
 }
->>>>>>> develop
 
 export const About = () => {
   const [toggle, setToggle] = useState(false);
@@ -32,7 +23,6 @@ export const About = () => {
   const openModal = () => {
     setToggle(!toggle);
   };
-  const { pathname } = useLocation();
 
   const [aboutData, setAboutData] = useState<Type[]>([]);
   useEffect(() => {

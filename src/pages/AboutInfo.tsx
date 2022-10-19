@@ -5,7 +5,7 @@ import Post from 'components/Post';
 export const AboutInfo = () => {
   return (
     <Dashboard>
-      <Post title="연혁" subTitle="회사연혁" />
+      <Post title="페이지 소개" subTitle="소개" />
     </Dashboard>
   );
 };

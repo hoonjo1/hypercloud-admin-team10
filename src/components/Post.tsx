@@ -13,7 +13,7 @@ export const Post = ({
 
   return (
     <div className="p-5 w-4/5 overflow-x-auto relative shadow-md sm:rounded-lg">
-      <TopBreadCrumb title="XR-Business" category="Business Area" />
+      <TopBreadCrumb title={title} category={title} />
       <div className="block w-full px-2 py-8 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
         {title}
         <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
@@ -26,7 +26,7 @@ export const Post = ({
             htmlFor="default-input"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
           >
-            페이지 타이틀
+            제목
           </label>
           <input
             type="text"
