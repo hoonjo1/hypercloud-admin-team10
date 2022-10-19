@@ -19,7 +19,7 @@
       "category": "페이지소개",
       "title": "테스트 제목",
       "body": "테스트 본문",
-      "id": ""
+      "id": "test1"
     }
   ],
   "xrBusiness": [
@@ -28,7 +28,14 @@
       "category": "페이지소개",
       "title": "테스트 제목",
       "body": "테스트 본문",
-      "id": ""
+      "id": "test2"
+    },
+    {
+      "author": null,
+      "title": "asdsdf",
+      "body": "asdasdsdfasdf",
+      "category": "기술 소개",
+      "id": "3fao9sh"
     }
   ]
 }

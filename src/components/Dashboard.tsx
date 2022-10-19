@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SideBar from 'components/SideBar';
 
@@ -9,11 +9,19 @@ interface Props {
 const Dashboard = ({ children }: Props) => {
   const navigate = useNavigate();
   const userName = localStorage.getItem('userName');
+
   const handleLogOut = () => {
     localStorage.removeItem('userName');
     localStorage.removeItem('accessToken');
     navigate('/');
   };
+
+  useEffect(() => {
+    if (!localStorage.getItem('userName')) {
+      navigate('/');
+      alert('로그인을 해주세요');
+    }
+  }, []);
 
   return (
     <main className="flex w-full">

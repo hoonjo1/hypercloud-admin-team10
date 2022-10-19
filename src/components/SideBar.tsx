@@ -21,7 +21,7 @@ const SideBar = ({
         <ul className="space-y-2">
           <li>
             <a
-              href="#"
+              href="/"
               className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white "
             >
               <svg
@@ -75,7 +75,7 @@ const SideBar = ({
           </li>
           <li>
             <a
-              href="/team-info"
+              href="/about-team-info"
               className="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <span className="flex ml-16 whitespace-nowrap">팀 소개</span>
@@ -83,7 +83,8 @@ const SideBar = ({
           </li>
           <li>
             <a
-              href="/history"
+              id="history"
+              href="/about-history"
               className="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <span className="flex ml-16 whitespace-nowrap">회사 연혁</span>
@@ -116,7 +117,7 @@ const SideBar = ({
           </li>
           <li>
             <a
-              href="/business-area"
+              href="/xr-business-area"
               className="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <span className="flex ml-16 whitespace-nowrap">기술 소개</span>
@@ -124,7 +125,7 @@ const SideBar = ({
           </li>
           <li>
             <a
-              href="/xr-contents-solution"
+              href="/xr-business-solution"
               className="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <span className="flex ml-16 whitespace-nowrap">기술 협업</span>

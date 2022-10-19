@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Dashboard from './Dashboard';
+import Dashboard from 'components/Dashboard';
 import { TopBreadCrumb } from 'components/TopBreadCrumb';
 import contents from 'api/contents';
 import { Modal } from 'components/Modal';

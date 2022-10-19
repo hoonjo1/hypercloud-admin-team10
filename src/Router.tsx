@@ -16,14 +16,16 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Auth />} />
+
         <Route path="/about" element={<About />} />
         <Route path="/about-info" element={<AboutInfo />} />
+        <Route path="/about-team-info" element={<TeamInfo />} />
+        <Route path="/about-history" element={<History />} />
+
         <Route path="/xr-business" element={<XrBusiness />} />
         <Route path="/xr-business-info" element={<XrBusinessInfo />} />
-        <Route path="/business-area" element={<BusinessArea />} />
-        <Route path="/history" element={<History />} />
-        <Route path="/team-info" element={<TeamInfo />} />
-        <Route path="/xr-contents-solution" element={<XrContentsSolution />} />
+        <Route path="/xr-business-area" element={<BusinessArea />} />
+        <Route path="/xr-business-solution" element={<XrContentsSolution />} />
       </Routes>
     </BrowserRouter>
   );

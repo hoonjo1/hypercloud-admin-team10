@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Dashboard from './Dashboard';
+import Dashboard from 'components/Dashboard';
 import { TopBreadCrumb } from 'components/TopBreadCrumb';
 import contents from 'api/contents';
 import { Modal } from 'components/Modal';
@@ -36,7 +36,7 @@ export const About = () => {
       <div className="p-5 w-4/5 overflow-x-auto relative shadow-md sm:rounded-lg">
         <TopBreadCrumb title="XR-Business" />
         <div className="block w-full px-2 py-8 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-          ABOUT HyperCloud
+          ABOUT HyperClouda
           <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
             하이퍼클러우드는 모두가 XR Contents를 보다 재미있고 쉽게 접하며
             가상과 현실이 융합된 공간에서 경계감 없이 매끄럽고 스마트한 삶이기를
