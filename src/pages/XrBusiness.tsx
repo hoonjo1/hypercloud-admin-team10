@@ -14,17 +14,21 @@ interface Type {
 
 export const XrBusiness = () => {
   const [toggle, setToggle] = useState(false);
-  const handleModal = () => {
+  const [idData, setIdData] = useState('');
+  const handleModal = (id: string) => {
+    setToggle(!toggle);
+    setIdData(id);
+  };
+  const openModal = () => {
     setToggle(!toggle);
   };
 
   const [businessData, setBusinessData] = useState<Type[]>([]);
   useEffect(() => {
-    contents.getAbout().then(data => {
+    contents.getXrBusiness().then(data => {
       setBusinessData(data);
     });
   }, []);
-  console.log(businessData);
 
   return (
     <Dashboard>
@@ -63,7 +67,7 @@ export const XrBusiness = () => {
                   key={content.id}
                   className="bg-white text-gray-900 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
                 >
-                  <td className="py-4 px-6">{content?.category}</td>
+                  <td className="py-4 px-6">{content.category}</td>
                   <th
                     scope="row"
                     className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -73,7 +77,9 @@ export const XrBusiness = () => {
                   <td className="py-4 px-6">{content.author}</td>
                   <td className="py-4 px-6 text-right">
                     <button
-                      onClick={handleModal}
+                      onClick={() => {
+                        handleModal(content.id);
+                      }}
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                       type="button"
                       data-modal-toggle="defaultModal"
@@ -85,7 +91,7 @@ export const XrBusiness = () => {
               ))}
           </tbody>
         </table>
-        {toggle && <Modal />}
+        {toggle && <Modal idData={idData} openModal={openModal} />}
       </div>
     </Dashboard>
   );
