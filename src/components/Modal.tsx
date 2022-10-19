@@ -1,6 +1,14 @@
 import React from 'react';
+import useListHandler from 'hooks/useListHandler';
 
-export const Modal = () => {
+interface Props {
+  idData: string;
+  openModal: () => void;
+}
+
+export const Modal = ({ idData, openModal }: Props) => {
+  const listData = useListHandler(idData);
+
   return (
     <div
       id="defaultModal"
@@ -12,11 +20,11 @@ export const Modal = () => {
         <div className="relative top-50% left-50% bg-white rounded-lg shadow dark:bg-gray-700">
           <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-              Terms of Service
+              {listData.title}
             </h3>
             <button
               type="button"
-              // onClick={handleModal}
+              onClick={openModal}
               className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
               data-modal-toggle="defaultModal"
             >
@@ -39,16 +47,7 @@ export const Modal = () => {
 
           <div className="p-6 space-y-6">
             <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-              With less than a month to go before the European Union enacts new
-              consumer privacy laws for its citizens, companies around the world
-              are updating their terms of service agreements to comply.
-            </p>
-            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-              The European Union’s General Data Protection Regulation (G.D.P.R.)
-              goes into effect on May 25 and is meant to ensure a common set of
-              data rights in the European Union. It requires organizations to
-              notify users as soon as possible of high-risk data breaches that
-              could personally affect them.
+              {listData.body}
             </p>
           </div>
         </div>
