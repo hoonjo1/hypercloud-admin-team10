@@ -38,8 +38,8 @@ const SideBar = () => {
         <ul className="pt-4 mt-4 space-y-2 border-t border-gray-200 dark:border-gray-700">
           <li>
             <a
-              onClick={e => e.preventDefault}
-              className="flex items-center p-2 cursor-default text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700"
+              href="/about"
+              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <svg
                 aria-hidden="true"
@@ -55,7 +55,7 @@ const SideBar = () => {
           </li>
           <li>
             <a
-              href="/about"
+              href="/about-info"
               className="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <span className="flex ml-16 whitespace-nowrap">페이지 소개</span>
@@ -79,8 +79,8 @@ const SideBar = () => {
           </li>
           <li>
             <a
-              onClick={e => e.preventDefault}
-              className="flex items-center p-2 cursor-default text-base font-normal text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700"
+              href="/xr-business"
+              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <svg
                 aria-hidden="true"
@@ -96,7 +96,7 @@ const SideBar = () => {
           </li>
           <li>
             <a
-              href="/xr-business"
+              href="/xr-business-info"
               className="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <span className="flex ml-16 whitespace-nowrap">페이지 소개</span>
