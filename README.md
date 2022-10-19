@@ -162,7 +162,7 @@ branch
 
 서수민 :
 
-장종현 :
+장종현 : url에 맞는 category matching hook
 
 정훈조 : 초기세팅, json-server api 설정 및 구현, 로그인/회원가입 기능 구현
 
@@ -191,7 +191,7 @@ branch
 
 <br/>
 
-장종현
+장종현 : CKEditor를 구현해보려고 했으나 typescript와 CKEditor의 호환성에서 도출되는 에러를 핸들링하지 못하여 포기한게 너무 아쉽다.
 
 -
 
