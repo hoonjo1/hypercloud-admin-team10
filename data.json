@@ -29,6 +29,13 @@
       "title": "테스트 제목",
       "body": "테스트 본문",
       "id": ""
+    },
+    {
+      "author": null,
+      "title": "asdsdf",
+      "body": "asdasdsdfasdf",
+      "category": "기술 소개",
+      "id": "3fao9sh"
     }
   ]
 }

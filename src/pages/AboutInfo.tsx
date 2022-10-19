@@ -1,11 +1,11 @@
 import React from 'react';
-import Dashboard from './Dashboard';
-import { PageSummary } from 'pages/PageSummary';
+import Dashboard from 'components/Dashboard';
+import Post from 'components/Post';
 
 export const AboutInfo = () => {
   return (
     <Dashboard>
-      <PageSummary title="About" category="introduce" />
+      <Post title="연혁" subTitle="회사연혁" />
     </Dashboard>
   );
 };

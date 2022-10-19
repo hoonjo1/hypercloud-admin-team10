@@ -83,6 +83,7 @@ const SideBar = ({
           </li>
           <li>
             <a
+              id="history"
               href="/history"
               className="flex items-center p-2 text-base font-normal text-gray-400 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >

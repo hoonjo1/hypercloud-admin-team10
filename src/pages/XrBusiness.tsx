@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Dashboard from './Dashboard';
+import Dashboard from 'components/Dashboard';
 import { TopBreadCrumb } from 'components/TopBreadCrumb';
 import contents from 'api/contents';
 import { Modal } from 'components/Modal';
@@ -14,9 +14,6 @@ interface Type {
 
 export const XrBusiness = () => {
   const [toggle, setToggle] = useState(false);
-  const handleModal = () => {
-    setToggle(!toggle);
-  };
 
   const [businessData, setBusinessData] = useState<Type[]>([]);
   useEffect(() => {
@@ -24,7 +21,6 @@ export const XrBusiness = () => {
       setBusinessData(data);
     });
   }, []);
-  console.log(businessData);
 
   return (
     <Dashboard>
@@ -73,7 +69,6 @@ export const XrBusiness = () => {
                   <td className="py-4 px-6">{content.author}</td>
                   <td className="py-4 px-6 text-right">
                     <button
-                      onClick={handleModal}
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                       type="button"
                       data-modal-toggle="defaultModal"
