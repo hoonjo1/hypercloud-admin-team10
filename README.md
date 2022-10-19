@@ -106,7 +106,6 @@ const signUp = async (email: string, password: string, name: string) => {
 export default signUp;
 ```
 
--
 
 ```js
 ///useUserHandler.ts
@@ -136,9 +135,110 @@ const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
 
 ### 콘텐츠 작성 화면
 
-- <br/>
+- pathname을 validation하여 각 페이지에 맞는 data를 fetch
 
 ```js
+//usePostForm.ts
+
+  const urlValidation = (pathname: string) => {
+    let urlLocation = '';
+    switch (pathname) {
+      case '/about-info':
+        urlLocation = '페이지 소개';
+        break;
+      case '/about-team-info':
+        urlLocation = '팀 소개';
+        break;
+      case '/about-history':
+        urlLocation = '기업 연혁';
+        break;
+      case '/xr-business-info':
+        urlLocation = '페이지 소개';
+        break;
+      case '/xr-business-solution':
+        urlLocation = '기술 협업';
+        break;
+      case '/xr-business-area':
+        urlLocation = '기술 소개';
+        break;
+      default:
+        urlLocation = '디폴트';
+    }
+    return urlLocation;
+  };
+
+  const usePostHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const author = localStorage.getItem('userName');
+    const { title, body } = values;
+    const category = urlValidation(pathname);
+    const endPoint = pathname.includes('about') ? '/about' : '/xr-business';
+
+    try {
+      const { data } = await axios.post(
+        `${BASE_URL}/${pathname === '/about' ? 'about' : 'xrbusiness'}`,
+        {
+          author,
+          title,
+          body,
+          category,
+        }
+      );
+      navigate(endPoint);
+    } catch (error) {
+      alert('server ERROR ❌');
+    }
+  };
+
+  return {
+    values,
+    usePostHandler,
+    handleInput,
+  };
+};
+
+
+```
+- props.children을 사용하여 SideBar를 구현
+- localStorage로 token의 유,무를 확인하여 페이지 접근을 컨트롤
+
+```js
+//Dashboard.tsx
+
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import SideBar from 'components/SideBar';
+
+interface Props {
+  children: JSX.Element[] | JSX.Element;
+}
+
+const Dashboard = ({ children }: Props) => {
+  const navigate = useNavigate();
+  const userName = localStorage.getItem('userName');
+
+  const handleLogOut = () => {
+    localStorage.removeItem('userName');
+    localStorage.removeItem('accessToken');
+    navigate('/');
+  };
+
+  useEffect(() => {
+    if (!localStorage.getItem('userName')) {
+      navigate('/');
+      alert('로그인을 해주세요');
+    }
+  }, []);
+
+  return (
+    <main className="flex w-full">
+      <SideBar userName={userName} handleLogOut={handleLogOut} />
+      {children}
+    </main>
+  );
+};
+
+export default Dashboard;
 
 ```
 
@@ -160,24 +260,12 @@ branch
 
 ## 테스크
 
-서수민 :
+서수민 : UI 구현, 콘텐츠 리스트 & 모달 구현
 
 장종현 : url에 맞는 category matching hook
 
 정훈조 : 초기세팅, json-server api 설정 및 구현, 로그인/회원가입 기능 구현
 
-<br/>
-
-## 목데이터
-
-<details>
-<summary>예시</summary>
-
-```js
-
-```
-
-</details>
 
 <br/>
 
@@ -187,13 +275,13 @@ branch
 
 서수민
 
--
+- 좀 더 효율적인 폴더 구조를 설계하지 못한 점이 아쉽습니다. 하지만 새로 접한 CSS 라이브러리로 UI를 구현하며 고민했던 시간이 즐거웠고, 팀원들과 소통하여 문제를 해결해 나가는 과정들이 좋았습니다.
 
 <br/>
 
-장종현 : CKEditor를 구현해보려고 했으나 typescript와 CKEditor의 호환성에서 도출되는 에러를 핸들링하지 못하여 포기한게 너무 아쉽다.
+장종현
 
--
+- CKEditor를 구현해보려고 했으나 typescript와 CKEditor의 호환성에서 도출되는 에러를 핸들링하지 못하여 포기한게 너무 아쉽다.
 
 <br/>
 
