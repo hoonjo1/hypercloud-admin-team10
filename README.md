@@ -23,6 +23,12 @@
 - 본 프로젝트는 로컬 환경에서 개발 했습니다
 - json-server 실행 명령어 : npm run server
 
+
+![1](https://user-images.githubusercontent.com/62737638/196850588-275067e2-2a48-4a64-80b6-0f86793d0ca4.gif)
+![2](https://user-images.githubusercontent.com/62737638/196850593-c51e8b51-c3ff-4e30-8b69-286826e7a7e2.gif)
+![3](https://user-images.githubusercontent.com/62737638/196850598-e7aa41b0-c57d-43c8-8543-f5572d043a17.gif)
+
+
 ## 요구사항과 해결방법
 
 > MISSION 1
