@@ -37,7 +37,7 @@
 
 - 기능 / markUp을 구분하여 개발 하였습니다 ( useUserHandler hook / Form Component)
 - useUserHandler 훅 내 로그인 / 회원가입 핸들러를 구현 했습니다<br/>
-- 동일한 레이아웃 내 [isSignUp] boolean 값 사용 같은 컴포넌트의 재사용성을 극대화 시켰습니다 (signIn or signUp)
+- 동일한 컴포넌트 [isSignUp] boolean 값 사용하여  컴포넌트의 재사용성을 극대화 시켰습니다 (signIn or signUp)
 
 ```js
 import React from 'react';
@@ -145,33 +145,6 @@ const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
 
 ```js
 //usePostForm.ts
-
-  const urlValidation = (pathname: string) => {
-    let urlLocation = '';
-    switch (pathname) {
-      case '/about-info':
-        urlLocation = '페이지 소개';
-        break;
-      case '/about-team-info':
-        urlLocation = '팀 소개';
-        break;
-      case '/about-history':
-        urlLocation = '기업 연혁';
-        break;
-      case '/xr-business-info':
-        urlLocation = '페이지 소개';
-        break;
-      case '/xr-business-solution':
-        urlLocation = '기술 협업';
-        break;
-      case '/xr-business-area':
-        urlLocation = '기술 소개';
-        break;
-      default:
-        urlLocation = '디폴트';
-    }
-    return urlLocation;
-  };
 
   const usePostHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
